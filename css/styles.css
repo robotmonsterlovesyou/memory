@@ -1,0 +1,113 @@
+* {
+    margin: 0; padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 1em;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 1em;
+    line-height: 1.3em;
+}
+
+h1 {
+    font-weight: normal;
+    line-height: 1.3em;
+}
+
+a {
+    color: #00f;
+}
+
+header {
+    margin-bottom: 1em;
+}
+
+header .info {
+    position: absolute;
+    top: .35em;
+    right: 0;
+}
+
+header .info .new-game {
+    margin-left: .5em;
+    padding: .5em;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: 1em;
+    border: 0;
+    background-color: #eee;
+    -webkit-appearance: none;
+}
+
+footer {
+    padding: 1em 0;
+}
+
+footer p {
+    font-size: .7em;
+    line-height: 1em;
+    text-align: center;
+}
+
+.wrapper {
+    margin: 0 auto;
+    position: relative;
+    width: calc((3.5em + 1em) * 4);
+}
+
+.board {
+    overflow: auto;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.piece {
+    margin: .5em;
+    float: left;
+    position: relative;
+    width: 3.5em;
+    height: 3.5em;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transition: -webkit-transform 1s;
+    cursor: default;
+}
+
+.piece .side {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 50%;
+    background-color: #333;
+    -webkit-backface-visibility: hidden;
+}
+
+.piece .side span {
+    margin-top: 2em;
+    display: block;
+    font-size: .7em;
+    line-height: 1em;
+    color: #fff;
+}
+
+.piece .back,
+.flipped,
+.matched {
+    -webkit-transform: rotateY(180deg);
+}
+
+@media screen and (min-width: 600px) {
+
+    body {
+        font-size: 1.4em;
+    }
+
+    .piece:not(.matched):focus .front,
+    .piece:not(.matched):hover .front {
+        background-color: #555;
+    }
+
+}
