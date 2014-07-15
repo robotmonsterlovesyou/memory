@@ -39,6 +39,7 @@ header .info .new-game {
     line-height: 1em;
     border: 0;
     background-color: #eee;
+    cursor: pointer;
     -webkit-appearance: none;
 }
 
