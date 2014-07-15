@@ -106,7 +106,9 @@
 
             clearTimeout(transitionTimeout);
 
-            $('.piece').off('webkitTransitionEnd').on('webkitTransitionEnd', function () {
+            $flipped.off('webkitTransitionEnd');
+
+            $this.on('webkitTransitionEnd', function () {
 
                 clearTimeout(transitionTimeout);
 
