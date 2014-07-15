@@ -1,5 +1,5 @@
 /*jslint browser: true */
-/*global $, randomColor, moment */
+/*global $, randomColor, FastClick */
 
 (function () {
 
@@ -150,5 +150,9 @@
         }
 
     });
+
+    window.addEventListener('load', function () {
+        new FastClick(document.body);
+    }, false);
 
 }());
