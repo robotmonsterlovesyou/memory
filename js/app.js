@@ -92,13 +92,7 @@
         var $this = $(this),
             $flipped = $board.find('.flipped');
 
-        if ($flipped.length > 1) {
-
-            $flipped.removeClass('flipped');
-
-        }
-
-        if ($this.not('.matched')) {
+        if ($flipped.length < 2 && $this.not('.matched')) {
 
             $this.addClass('flipped');
 
