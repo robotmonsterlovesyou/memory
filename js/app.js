@@ -6,8 +6,7 @@
     'use strict';
 
     var $board = $('.board'),
-        $timer = $('.timer'),
-        timerInterval = null,
+        $tries = $('.tries'),
         transitionTimeout = null,
         $pieces;
 
@@ -51,29 +50,14 @@
 
         }, 500);
 
-        clearInterval(timerInterval);
-
-        $timer.attr('data-seconds', 0);
-
-        $timer.html('00:00');
-
-        timerInterval = setInterval(function () {
-
-            var seconds = parseInt($timer.attr('data-seconds'), 10) + 1;
-
-            $timer.attr('data-seconds', seconds);
-
-            $timer.html(
-                ('00' + Math.floor(seconds / 60)).slice(-2) + ':' + ('00' + (seconds % 60)).slice(-2)
-            );
-
-        }, 1000);
+        $tries.html('0');
 
     }
 
     function handlePieceFlipped() {
 
-        var $flipped = $board.find('.flipped');
+        var $flipped = $board.find('.flipped'),
+            tries = parseInt($tries.html(), 10);
 
         if ($flipped.length === 2) {
 
@@ -84,6 +68,20 @@
             }
 
             $flipped.removeClass('flipped');
+
+            tries += 1;
+
+            $tries.html(tries);
+
+            if ($('.matched').length === $pieces.length) {
+
+                if (window.confirm('Congrats! You won with only ' + tries + ' tries. Not bad! Play again?')) {
+
+                    populateBoard();
+
+                }
+
+            }
 
         }
 
